@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/mentornut_admin/static/css/main.111d206b.css",
+    "main.js": "/mentornut_admin/static/js/main.a9a79fec.js",
+    "static/js/787.09a2918d.chunk.js": "/mentornut_admin/static/js/787.09a2918d.chunk.js",
+    "index.html": "/mentornut_admin/index.html",
+    "main.111d206b.css.map": "/mentornut_admin/static/css/main.111d206b.css.map",
+    "main.a9a79fec.js.map": "/mentornut_admin/static/js/main.a9a79fec.js.map",
+    "787.09a2918d.chunk.js.map": "/mentornut_admin/static/js/787.09a2918d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.111d206b.css",
+    "static/js/main.a9a79fec.js"
+  ]
+}
