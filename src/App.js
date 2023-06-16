@@ -22,9 +22,20 @@ function App() {
       resultArray.push({ id: doc.id, ...doc.data() });
     });
     console.log(resultArray)
+    for (var i = 0; i < resultArray.length; i++) {
+      for (var j = 0; j < (resultArray.length - i - 1); j++) {
+        if (resultArray[j].Num > resultArray[j + 1].Num) {
+          var temp = resultArray[j].Num
+          resultArray[j].Num = resultArray[j + 1].Num
+          resultArray[j + 1].Num = temp
+        }
+      }
+    }
     setdata(resultArray);
-    console.log(data)
-  };
+
+    console.log(data, 'I am soe6ef adrr')
+
+  }
   const AddNote = async (item) => {
     if (note == "") {
       alert("please add some note for selected person")
@@ -59,6 +70,7 @@ function App() {
   }
   return (
     <>
+      {/* <button onClick={SOrtData}> k</button> */}
       <h1 style={{ textAlign: "center" }}>ADMIN APP</h1>
       <div style={{ width: "100%", textAlign: "center", margin: "2% 0%" }}>
 
@@ -85,7 +97,7 @@ function App() {
           {
             data.map((item, sno = 1) => (
               <tr className='tablerow'>
-                <td style={{ width: "5%" }}>{++sno}</td>
+                <td style={{ width: "5%" }}>{item.Num}</td>
                 <td>{item.Date}</td>
                 <td>{item.Name}</td>
                 <td>{item.Mobile}</td>
