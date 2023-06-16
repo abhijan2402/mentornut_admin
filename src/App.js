@@ -22,18 +22,21 @@ function App() {
       resultArray.push({ id: doc.id, ...doc.data() });
     });
     console.log(resultArray)
+    setdata(resultArray);
+    console.log("kkk", data);
     for (var i = 0; i < resultArray.length; i++) {
       for (var j = 0; j < (resultArray.length - i - 1); j++) {
-        if (resultArray[j].Num > resultArray[j + 1].Num) {
-          var temp = resultArray[j].Num
-          resultArray[j].Num = resultArray[j + 1].Num
-          resultArray[j + 1].Num = temp
+        if (resultArray[j].Num < resultArray[j + 1].Num) {
+          var temp = resultArray[j]
+          resultArray[j] = resultArray[j + 1]
+          resultArray[j + 1] = temp
         }
       }
     }
+    console.log(resultArray, "i am sorted");
     setdata(resultArray);
 
-    console.log(data, 'I am soe6ef adrr')
+    // console.log(data, 'I am soe6ef adrr')
 
   }
   const AddNote = async (item) => {
@@ -50,7 +53,8 @@ function App() {
         Mobile: item.Mobile,
         Note: note,
         Class: item.Class,
-        Problem: item.Problem
+        Problem: item.Problem,
+        Num: item.Num
       };
 
       await updateDoc(docRef, data)
@@ -70,7 +74,7 @@ function App() {
   }
   return (
     <>
-      {/* <button onClick={SOrtData}> k</button> */}
+      {/* <button onClick={getData}> k</button> */}
       <h1 style={{ textAlign: "center" }}>ADMIN APP</h1>
       <div style={{ width: "100%", textAlign: "center", margin: "2% 0%" }}>
 
@@ -95,7 +99,7 @@ function App() {
             <th>Note</th>
           </tr>
           {
-            data.map((item, sno = 1) => (
+            data.map((item) => (
               <tr className='tablerow'>
                 <td style={{ width: "5%" }}>{item.Num}</td>
                 <td>{item.Date}</td>
